@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat AI</title>
+    <link th:href="@{/css/styles.css}" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+    <h1>Witaj w ChatAI</h1>
+</header>
+<div class="container">
+    <div class="textarea-container">
+        <form th:action="@{/api/ai/chat/messages}" method="post">
+            <textarea name="content" rows="6" cols="50" placeholder="Napisz wiadomość" required></textarea>
+            <br>
+            <input type="submit" value="Wyślij">
+        </form>
+    </div>
+    <div class="messages-container">
+        <div th:each="message : ${messages}" class="message-container"
+             th:classappend="${message.type.toString()} == 'SYSTEM' ? 'system-message' : 'user-message'">
+            <div class="message-content">
+                <span th:text="${message.content}"></span>
+                <br>
+                <span class="message-time" th:text="${#temporals.format(message.timestamp, 'yyyy-MM-dd HH:mm:ss')}"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>&copy; 2024 ChatAI</p>
+</footer>
+</body>
+</html>

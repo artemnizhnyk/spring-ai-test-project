@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #6079bf;
+    color: #fff;
+    text-align: center;
+    padding: 1vh 0;
+}
+
+footer {
+    background-color: #6079bf;
+    color: #fff;
+    text-align: center;
+    padding: 1vh 0;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+}
+
+.container {
+    max-width: 70vw;
+    margin: 2vh auto;
+    display: flex;
+}
+
+.textarea-container {
+    width: 35vw;
+}
+
+textarea {
+    width: 27vw;
+    margin-bottom: .5vh;
+    padding: .6vh;
+}
+
+input[type="submit"] {
+    width: 27.5vw;
+    padding: 1vh;
+    background-color: #6079bf;
+    color: white;
+    border: none;
+    border-radius: .5vh;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #4d61b2;
+}
+
+.messages-container {
+    max-height: 75vh;
+    width: 40vw;
+    overflow-y: auto;
+    padding-bottom: 1vh;
+    padding-right: .5vw;
+}
+
+.message-container {
+    margin-bottom: 1vh;
+    clear: both;
+}
+
+.message-content {
+    margin: .4vh 0;
+    padding: 1.2vh;
+    border-radius: 2vh;
+    max-width: 23vw;
+    overflow-wrap: break-word;
+}
+
+.message-time {
+    font-size: 1vh;
+    color: #777;
+    margin-top: .5vh;
+    float: right;
+}
+
+.system-message .message-content {
+    background-color: #d7f58c;
+    float: left;
+}
+
+.user-message .message-content {
+    background-color: #f7da95;
+    float: right;
+}
