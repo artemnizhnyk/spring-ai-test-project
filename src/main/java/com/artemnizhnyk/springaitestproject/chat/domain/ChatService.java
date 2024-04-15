@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,9 @@ class ChatService implements ChatFacade {
 
     @Override
     public List<MessageDto> getMessages() {
-        return messages;
+        return messages.stream()
+                .sorted(Comparator.comparing(MessageDto::timestamp).reversed())
+                .toList();
     }
 
     @Override
@@ -59,8 +62,14 @@ class ChatService implements ChatFacade {
         return new SystemPromptTemplate(systemPrompt)
                 .createMessage(Map.of(
                         "documents", documentFacade.getSimilarDocuments(userPrompt),
-                        "messages", messages
+                        "messages", getLastMessages()
                 ));
+    }
+
+    private List<MessageDto> getLastMessages() {
+        return messages.stream()
+                .skip(Math.max(0, messages.size() - 6))
+                .toList();
     }
 
 }

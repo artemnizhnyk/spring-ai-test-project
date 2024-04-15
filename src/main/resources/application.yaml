@@ -4,3 +4,8 @@ spring:
   ai:
     openai:
       api-key: ${OPENAI_API_KEY}
+
+  datasource:
+    url: jdbc:postgresql://localhost:5437/postgres
+    username: user
+    password: password

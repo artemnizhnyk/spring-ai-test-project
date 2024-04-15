@@ -21,7 +21,7 @@ class FileService implements FileFacade {
 
     private final DocumentFacade documentFacade;
 
-    @Value("classpath:firma.pdf")
+    @Value("classpath:any.pdf")
     private Resource resource;
 
     @Override
