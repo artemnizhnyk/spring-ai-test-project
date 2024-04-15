@@ -58,7 +58,7 @@ class ChatService implements ChatFacade {
                 """;
         return new SystemPromptTemplate(systemPrompt)
                 .createMessage(Map.of(
-                        "documents", documentsFacade.getSimilarDocuments(userPrompt),
+                        "documents", documentFacade.getSimilarDocuments(userPrompt),
                         "messages", messages
                 ));
     }
